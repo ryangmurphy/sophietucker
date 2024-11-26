@@ -1,28 +1,26 @@
-import { Hero } from "@/components/Hero"
-import { Nav } from "@/components/nav"
-import { ProjectCard } from "@/components/project-card"
+import { Hero } from "@/components/Hero";
+import { Nav } from "@/components/nav";
+import { ProjectCard } from "@/components/project-card";
+import About from "@/components/About";
+import PortfolioPage from "@/components/Portfolio";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100  to-teal-100">
+    <div
+      className="min-h-screen bg-gradient-to-r
+    from-pink-200
+    via-purple-200
+    to-pink-200
+    animated-background"
+    >
       <Nav />
       <main className="container mx-auto px-6">
         <Hero />
-        <div className="grid gap-6 pb-24 md:grid-cols-2">
-          <ProjectCard
-            category="HELP SCOUT"
-            title="AI"
-            image="/placeholder.svg?height=400&width=800"
-            variant="purple"
-          />
-          <ProjectCard
-            category="HELP SCOUT"
-            title="Articles"
-            image="/placeholder.svg?height=400&width=800"
-          />
-        </div>
+        <About />
+        <PortfolioPage />
+        <Footer />
       </main>
     </div>
-  )
+  );
 }
-

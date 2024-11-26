@@ -75,7 +75,10 @@ const skills = [
 
 
   return (
-    <Tabs defaultValue="education" className="w-full max-w-4xl mx-auto p-4">
+    <Tabs
+      defaultValue="education"
+      className="w-full max-w-4xl mx-auto p-4 py-16"
+    >
       <TabsList className="grid w-full grid-cols-3 rounded-full bg-pink-100 p-1">
         <TabsTrigger
           value="education"
@@ -97,7 +100,7 @@ const skills = [
         </TabsTrigger>
       </TabsList>
       <TabsContent value="education">
-        <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg">
+        <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl">
           <CardHeader>
             <CardTitle className="text-pink-800 text-center">
               Education
@@ -144,7 +147,7 @@ const skills = [
         </Card>
       </TabsContent>
       <TabsContent value="certificates">
-        <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg">
+        <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl">
           <CardHeader>
             <CardTitle className="text-pink-800 text-center">
               Certificates
@@ -183,7 +186,7 @@ const skills = [
         </Card>
       </TabsContent>
       <TabsContent value="skills">
-        <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg">
+        <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl">
           <CardHeader>
             <CardTitle className="text-pink-800 text-center">Skills</CardTitle>
           </CardHeader>

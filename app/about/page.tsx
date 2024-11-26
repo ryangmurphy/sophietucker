@@ -65,9 +65,7 @@ export default function AboutPage() {
                     communications.
                   </p>
                   <p className="mt-4">
-                    These days, I focus on leading design at GiveDirectly, a
-                    nonprofit that lets donors send money directly to the
-                    world&apos;s poorest households.
+                    At the moment, I am a Scheduling Clerk as NSHA 
                   </p>
                 </div>
               </div>

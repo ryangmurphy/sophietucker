@@ -13,7 +13,7 @@ export function Timeline({ items }: TimelineProps) {
   return (
     <div className="relative w-full max-w-4xl mx-auto py-8">
       {/* Vertical line */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-pink-200"></div>
+      <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-pink-800"></div>
 
       <div className="relative space-y-8">
         {items.map((item, index) => (
