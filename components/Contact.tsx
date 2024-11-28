@@ -26,13 +26,13 @@ export default function Contact() {
             <div className="flex items-center space-x-2">
               <MapPinIcon className="h-5 w-5 text-foreground/80 " />
               <span className="text-foreground/80 text-sm font-semibold">
-                Halifax, Nova Scotia
+                Dartmouth, Nova Scotia
               </span>
             </div>
             <div className="lg:col-span-2 pt-6">
               <div className="h-96 w-full">
                 <iframe
-                  src="https://www.google.com/maps/embed/v1/search?q=halifax&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                  src="https://www.google.com/maps/embed/v1/search?q=darmouth&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

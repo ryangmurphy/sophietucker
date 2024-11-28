@@ -13,7 +13,7 @@ async function getWeather(): Promise<{ main: { temp: number } } | null> {
   const now = Date.now();
 
   // If data is cached and less than an hour has passed, return cached data
-  if (cachedWeather && now - lastFetched < 3600000) {
+  if (cachedWeather && now - lastFetched < 1800000) {
     return cachedWeather;
   }
 
@@ -46,10 +46,10 @@ export default async function Home() {
     from-pink-200
     via-purple-200
     to-pink-200
-    animated-background overflow-hidden"
+    animated-background overflow-x-hidden scroll-smooth"
     >
       <Nav />
-      <main className="container mx-auto px-6 scroll-smooth">
+      <main className="container mx-auto px-6">
         <Hero />
         <About temperature={temperature} />
         <PortfolioPage />
