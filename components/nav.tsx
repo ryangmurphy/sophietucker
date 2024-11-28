@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils"
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Contact" },
+  { href: "#about", label: "About" },
+  { href: "#work", label: "Work" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -25,7 +25,7 @@ export function Nav() {
                 "rounded-full px-4 py-2 text-sm transition-colors hover:text-pink-950",
                 activeItem === item.href
                   ? "bg-pink-50 text-pink-950"
-                  : "text-pink-800"
+                  : "text-pink-700"
               )}
               onClick={() => setActiveItem(item.href)}
             >

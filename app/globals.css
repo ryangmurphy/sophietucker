@@ -84,6 +84,13 @@ body {
     animation: animation 15s ease infinite;
 }
 
+  .animated-span {
+       transition: transform 0.3s ease-in-out;
+   }
+   .animated-span:hover {
+       transform: scale(1.1);
+   }
+
 @keyframes animation {
     0%,
     100% {

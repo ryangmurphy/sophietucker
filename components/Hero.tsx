@@ -1,21 +1,41 @@
+
+import React from "react";
+
+import { StarsBackground } from "@/components/ui/stars-background";
+import SparklesText from "@/components/ui/sparkles-text";
+
+
 export function Hero() {
   return (
-    <div className="flex min-h-[80vh] flex-col items-center justify-center text-center">
-      <div className="relative">
-        <div className="absolute -left-12 -top-12 rotate-12">
-          <Star className="h-8 w-8 text-white" />
+    <div
+      id="/"
+      className="relative min-h-[80vh] flex flex-col items-center justify-center text-center"
+    >
+      <div className="absolute inset-0 mb-16">
+        <StarsBackground className="absolute max-w-fit scale-x-150 h-full z-10" />
+        {/*<ShootingStars className="absolute w-full h-full z-20" />*/}
+      </div>
+
+      <div className="relative z-30">
+        <div className="absolute -top-16 -left-8 md:-left-8 md:-top-8 rotate-12">
+          <Star className="h-20 w-20 drop-shadow-lg" />
         </div>
-        <h1 className="mb-4 text-7xl font-bold tracking-tight text-pink-950">
+        <h1 className="mb-4 text-5xl md:text-7xl font-bold tracking-tight text-pink-900">
           Hi. I&apos;m Sophie.
-          <br />A Marketing Coordinator.
+          <br />
+          <SparklesText
+            text="A Marketing Professional."
+            className="text-white"
+          />
         </h1>
-        <div className="absolute -bottom-24 -right-32 -rotate-12">
-          <Star className="h-8 w-8 text-white" />
+        <div className="absolute -bottom-14 -right-8 md:-bottom-24 md:-right-16 -rotate-12">
+          <Star className="h-20 w-20 drop-shadow-lg" />
         </div>
       </div>
-      <p className="mt-8 max-w-md text-xl font-semibold text-emerald-800">
-        I&apos;m passionate about crafting experiences that are engaging,
-        accessible, and user-centric.
+      <p className="mt-8 max-w-lg text-lg md:text-xl font-normal text-pink-800 relative z-30">
+        I’m passionate about creating marketing strategies that drive
+        engagement, turning insights into targeted plans, and delivering
+        measurable impact.
       </p>
     </div>
   );
@@ -24,6 +44,7 @@ export function Hero() {
 function Star(props: React.ComponentProps<"svg">) {
   return (
     <svg
+      {...props}
       fill="#ffffff"
       width="100px"
       height="100px"
@@ -32,11 +53,11 @@ function Star(props: React.ComponentProps<"svg">) {
       xmlns="http://www.w3.org/2000/svg"
       stroke="#ffffff"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         stroke="#CCCCCC"
         strokeWidth="1.024"
       ></g>
@@ -48,4 +69,3 @@ function Star(props: React.ComponentProps<"svg">) {
     </svg>
   );
 }
-

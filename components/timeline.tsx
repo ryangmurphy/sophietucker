@@ -11,7 +11,7 @@ interface TimelineProps {
 
 export function Timeline({ items }: TimelineProps) {
   return (
-    <div className="relative w-full max-w-4xl mx-auto py-8">
+    <div className="relative w-full max-w-4xl mx-auto py-16">
       {/* Vertical line */}
       <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-pink-800"></div>
 
@@ -30,7 +30,10 @@ export function Timeline({ items }: TimelineProps) {
             {/* Content Container */}
             <div
               className={`
-                w-[calc(50%-2rem)] 
+                md:w-[calc(50%-2rem)]
+                w-40
+                -mx-8
+                md:-mx-0
                 p-4 
                 rounded-lg 
                 bg-pink-50 
@@ -42,14 +45,12 @@ export function Timeline({ items }: TimelineProps) {
             >
               <div className="flex justify-between items-center mb-2">
                 <div>
-                  <div className="text-sm font-semibold text-pink-950">
-                    {item.company}
+                  <div className="text-md font-bold text-pink-950">
+                    {item.role}
                   </div>
-                  <div className="text-xs text-pink-800">{item.role}</div>
+                  <div className="text-sm text-pink-800 font-semibold">{item.company}</div>
                 </div>
-                <div className="text-xs text-pink-600 ml-4">
-                  {item.period}
-                </div>
+                <div className="text-xs text-pink-600 ml-4">{item.period}</div>
               </div>
             </div>
           </div>

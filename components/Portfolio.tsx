@@ -6,33 +6,33 @@ import { Button } from "@/components/ui/button";
 const portfolioProjects = [
   {
     id: "project1",
-    title: "Brand Redesign Campaign",
+    title: "project1",
     description:
       "Led a comprehensive brand redesign for a tech startup, resulting in a 40% increase in brand recognition.",
-    image: "",
+    image: "/ah-igpost.png",
     tags: ["Branding", "Design", "Marketing"],
   },
   {
     id: "project2",
-    title: "Social Media Growth Strategy",
+    title: "project2",
     description:
       "Developed and implemented a social media strategy that grew the client's following by 200% in 6 months.",
-    image: "",
+    image: "/ah-igpost.png",
     tags: ["Social Media", "Growth", "Strategy"],
   },
   {
     id: "project3",
-    title: "E-commerce Website Optimization",
+    title: "project3",
     description:
       "Optimized an e-commerce website, improving conversion rates by 25% and increasing average order value by 15%.",
-    image: "",
+    image: "/ah-igpost.png",
     tags: ["E-commerce", "Optimization", "UX"],
   },
 ];
 
 export default function PortfolioPage() {
   return (
-    <div className="w-full max-w-6xl mx-auto p-4">
+    <div id="work" className="w-full max-w-6xl mx-auto p-4 py-16">
       <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl">
         <CardHeader>
           <CardTitle className="text-pink-800 text-center text-3xl">
@@ -58,9 +58,9 @@ export default function PortfolioPage() {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, index) => (
+                    {project.tags.map((tag) => (
                       <Badge
-                        key={index}
+                        key={tag}
                         variant="secondary"
                         className="bg-pink-100 text-pink-700"
                       >
