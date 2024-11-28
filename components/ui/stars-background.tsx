@@ -65,43 +65,37 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     ]
   );
 
-  useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        
-    const updateStars = () => {
-      if (canvasRef.current) {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
+useEffect(() => {
+  const canvas = canvasRef.current; // Cache the ref
+  if (!canvas) return;
 
-        const { width, height } = canvas.getBoundingClientRect();
-        canvas.width = width;
-        canvas.height = height;
-        setStars(generateStars(width, height));
-      }
-    };
+  const updateStars = () => {
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    updateStars();
+    const { width, height } = canvas.getBoundingClientRect();
+    canvas.width = width;
+    canvas.height = height;
+    setStars(generateStars(width, height));
+  };
 
-    const resizeObserver = new ResizeObserver(updateStars);
-    if (canvasRef.current) {
-      resizeObserver.observe(canvasRef.current);
-    }
+  updateStars();
 
-    return () => {
-      if (canvasRef.current) {
-        resizeObserver.unobserve(canvasRef.current);
-      }
-    };
-  }, [
-    starDensity,
-    allStarsTwinkle,
-    twinkleProbability,
-    minTwinkleSpeed,
-    maxTwinkleSpeed,
-    generateStars,
-  ]);
+  const resizeObserver = new ResizeObserver(updateStars);
+  resizeObserver.observe(canvas);
+
+  return () => {
+    resizeObserver.unobserve(canvas); // Use the cached canvas variable
+  };
+}, [
+  starDensity,
+  allStarsTwinkle,
+  twinkleProbability,
+  minTwinkleSpeed,
+  maxTwinkleSpeed,
+  generateStars,
+]);
+
 
   useEffect(() => {
     const canvas = canvasRef.current;
