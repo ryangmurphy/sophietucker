@@ -37,7 +37,7 @@ export default function Contact() {
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen={true}
-                  loading="eager"
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="rounded-xl"
                 ></iframe>

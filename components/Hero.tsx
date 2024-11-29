@@ -9,11 +9,11 @@ export function Hero() {
   return (
     <div
       id="/"
-      className="relative min-h-[80vh] flex flex-col items-center justify-center text-center"
+      className="relative min-h-[80vh] flex flex-col items-center justify-center text-center overflow-x-hidden"
     >
       <div className="absolute inset-0 mb-16">
-        <StarsBackground className="absolute max-w-fit scale-x-150 h-full z-10" />
-        {/*<ShootingStars className="absolute w-full h-full z-20" />*/}
+        <StarsBackground className="absolute min-w-full h-full" />
+  
       </div>
 
       <div className="relative z-30">

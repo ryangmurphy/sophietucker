@@ -1,8 +1,8 @@
-import type { Metadata, Viewport } from "next";
-
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-
+const inter = Inter({ subsets: ["latin"] });
 // Comprehensive metadata configuration
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sophietucker.ca"), // Replace with your actual domain
@@ -83,29 +83,17 @@ export const metadata: Metadata = {
   },
 };
 
-// Viewport configuration for responsive design
-export const viewport: Viewport = {
-  themeColor: "#EDD4FB", // Customize to match your brand
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1, // Accessibility consideration
-  userScalable: false, // Consider allowing scaling for accessibility
-};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      dir="ltr"
-      className={`antialiased`}
-    >
+    <html lang="en">
       <head>
         {/* Preload critical assets */}
-  
+
         <link
           rel="icon"
           type="image/png"
@@ -118,11 +106,10 @@ export default function RootLayout({
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
-        <meta name="apple-mobile-web-app-title" content="Sophie Tucker" />
       </head>
       <body
         // Add accessibility and performance attributes
-        className="min-h-screen bg-white text-black dark:bg-black dark:text-white"
+        className={`${inter.className} min-h-screen`}
       >
         {children}
       </body>

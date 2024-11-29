@@ -1,12 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  RefObject,
-  useCallback,
-} from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 
 interface StarProps {
   x: number;
@@ -26,16 +20,16 @@ interface StarBackgroundProps {
 }
 
 export const StarsBackground: React.FC<StarBackgroundProps> = ({
-  starDensity = 0.00850,
+  starDensity = 0.0085,
   allStarsTwinkle = true,
   twinkleProbability = 0.8,
   minTwinkleSpeed = 0.5,
   maxTwinkleSpeed = 1,
   className,
 }) => {
-  const [stars, setStars] = useState<StarProps[]>([]);
-  const canvasRef: RefObject<HTMLCanvasElement> =
-    useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const starsRef = useRef<StarProps[]>([]); // Store stars in a ref to avoid unnecessary re-renders
+  const animationFrameId = useRef<number | null>(null); // To store the animation frame ID
 
   const generateStars = useCallback(
     (width: number, height: number): StarProps[] => {
@@ -65,38 +59,6 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     ]
   );
 
-useEffect(() => {
-  const canvas = canvasRef.current; // Cache the ref
-  if (!canvas) return;
-
-  const updateStars = () => {
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const { width, height } = canvas.getBoundingClientRect();
-    canvas.width = width;
-    canvas.height = height;
-    setStars(generateStars(width, height));
-  };
-
-  updateStars();
-
-  const resizeObserver = new ResizeObserver(updateStars);
-  resizeObserver.observe(canvas);
-
-  return () => {
-    resizeObserver.unobserve(canvas); // Use the cached canvas variable
-  };
-}, [
-  starDensity,
-  allStarsTwinkle,
-  twinkleProbability,
-  minTwinkleSpeed,
-  maxTwinkleSpeed,
-  generateStars,
-]);
-
-
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -104,32 +66,60 @@ useEffect(() => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationFrameId: number;
-
-    const render = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach((star) => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-        ctx.fill();
-
-        if (star.twinkleSpeed !== null) {
-          star.opacity =
-            0.5 +
-            Math.abs(Math.sin((Date.now() * 0.001) / star.twinkleSpeed) * 0.5);
-        }
-      });
-
-      animationFrameId = requestAnimationFrame(render);
+    // Pre-generate stars
+    const updateStars = () => {
+      const { width, height } = canvas.getBoundingClientRect();
+      canvas.width = width;
+      canvas.height = height;
+      starsRef.current = generateStars(width, height);
     };
 
-    render();
+    updateStars(); // Initial star generation
+
+    // Debounced resize observer to prevent excessive re-renders
+    const resizeObserver = new ResizeObserver(() => {
+      updateStars();
+    });
+    resizeObserver.observe(canvas);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      resizeObserver.disconnect();
     };
-  }, [stars]);
+  }, [generateStars]);
+
+  const renderStars = useCallback(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    starsRef.current.forEach((star) => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+      ctx.fill();
+
+      // Twinkle effect
+      if (star.twinkleSpeed !== null) {
+        star.opacity =
+          0.5 +
+          Math.abs(Math.sin((Date.now() * 0.001) / star.twinkleSpeed) * 0.5);
+      }
+    });
+
+    // Request the next frame for continuous rendering
+    animationFrameId.current = requestAnimationFrame(renderStars);
+  }, []);
+
+  useEffect(() => {
+    renderStars(); // Start rendering the stars
+
+    return () => {
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current); // Cleanup
+      }
+    };
+  }, [renderStars]);
 
   return (
     <canvas
