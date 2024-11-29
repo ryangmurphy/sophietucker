@@ -13,7 +13,6 @@ export function Hero() {
     >
       <div className="absolute inset-0 mb-16">
         <StarsBackground className="absolute min-w-full h-full" />
-  
       </div>
 
       <div className="relative z-30">

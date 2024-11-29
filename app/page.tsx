@@ -42,7 +42,7 @@ export default async function Home() {
   const temperature = weatherData ? weatherData.main.temp : null; // Handle case where data is null
 
   return (
-    <main className="overflow-x-hidden mx-auto scroll-smooth md:scroll-auto bg-pink-200">
+    <main className="overflow-x-hidden mx-auto scroll-smooth md:scroll-auto bg-gradient-to-r from-pink-200 via-purple-200 to-pink-200 animated-background">
       <Nav />
       <Hero />
       <About temperature={temperature} />
