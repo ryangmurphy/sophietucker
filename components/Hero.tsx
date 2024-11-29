@@ -16,7 +16,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-30">
-        <div className="absolute -top-16 -left-8 md:-left-8 md:-top-8 rotate-12">
+        <div className="absolute -top-16 -left-4 md:-left-8 md:-top-8 rotate-12">
           <Star className="h-20 w-20 drop-shadow-lg" />
         </div>
         <h1 className="mb-4 text-5xl md:text-7xl font-bold tracking-tight text-pink-900">
@@ -24,15 +24,15 @@ export function Hero() {
           <br />
           <SparklesText
             text="A Marketing Professional."
-            className="text-white"
+            className="text-white text-5xl md:text-7xl"
           />
         </h1>
-        <div className="absolute -bottom-14 -right-8 md:-bottom-24 md:-right-16 -rotate-12">
+        <div className="absolute -bottom-14 -right-4 md:-bottom-24 md:-right-16 -rotate-12">
           <Star className="h-20 w-20 drop-shadow-lg" />
         </div>
       </div>
-      <p className="mt-8 max-w-lg text-lg md:text-xl font-normal text-pink-800 relative z-30">
-        I’m passionate about creating marketing strategies that drive
+      <p className="mt-14 md:mt-8 max-w-lg text-lg md:text-xl font-semibold md:font-normal text-pink-800 relative z-30">
+        I&apos;m passionate about creating marketing strategies that drive
         engagement, turning insights into targeted plans, and delivering
         measurable impact.
       </p>

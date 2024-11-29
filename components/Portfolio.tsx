@@ -22,7 +22,7 @@ const portfolioProjects = [
   },
   {
     id: "project3",
-    title: "project3",
+    title: "Paraglide Infographic",
     description:
       "Optimized an e-commerce website, improving conversion rates by 25% and increasing average order value by 15%.",
     image: "/ah-igpost.png",

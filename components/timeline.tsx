@@ -11,7 +11,7 @@ interface TimelineProps {
 
 export function Timeline({ items }: TimelineProps) {
   return (
-    <div className="relative w-full max-w-4xl mx-auto py-16">
+    <div className="relative w-full max-w-4xl mx-auto py-16 px-4 md:px-0">
       {/* Vertical line */}
       <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-pink-800"></div>
 

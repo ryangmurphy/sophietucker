@@ -1,10 +1,9 @@
-
+import React from "react";
 import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/nav";
 import Contact from "@/components/Contact";
 import About from "@/components/About";
 import { Footer } from "@/components/Footer";
-import React from "react";
 import PortfolioPage from "@/components/Portfolio";
 
 let cachedWeather: { main: { temp: number } } | null = null;
@@ -35,7 +34,6 @@ async function getWeather(): Promise<{ main: { temp: number } } | null> {
     return null; // Return null if the fetch fails
   }
 }
-
 
 export default async function Home() {
   const weatherData = await getWeather();
