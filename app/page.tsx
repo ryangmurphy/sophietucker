@@ -6,41 +6,28 @@ import About from "@/components/About";
 import { Footer } from "@/components/Footer";
 import PortfolioPage from "@/components/Portfolio";
 
-let cachedWeather: { main: { temp: number } } | null = null;
-let lastFetched: number = 0;
-
+// Server-side weather fetching function
 async function getWeather(): Promise<{ main: { temp: number } } | null> {
-  const now = Date.now();
-
-  // If data is cached and less than an hour has passed, return cached data
-  if (cachedWeather && now - lastFetched < 1800000) {
-    return cachedWeather;
-  }
-
   try {
     const apiKey = process.env.WEATHER_API_KEY;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=Halifax,CA&units=metric&appid=${apiKey}`;
 
-    const res = await fetch(url);
+    const res = await fetch(url, { next: { revalidate: 1800 } }); // ISR mechanism (revalidate every 30 minutes)
     if (!res.ok) throw new Error("Failed to fetch weather data");
 
-    // Cache the response
-    cachedWeather = await res.json();
-    lastFetched = now; // Update the last fetched time
-
-    return cachedWeather;
+    return await res.json();
   } catch (error) {
     console.error("Error fetching weather data:", error);
-    return null; // Return null if the fetch fails
+    return null;
   }
 }
 
 export default async function Home() {
-  const weatherData = await getWeather();
-  const temperature = weatherData ? weatherData.main.temp : null; // Handle case where data is null
+  const weatherData = await getWeather(); // Fetch weather data on the server
+  const temperature = weatherData ? weatherData.main.temp : null;
 
   return (
-    <main className="overflow-x-hidden mx-auto scroll-smooth md:scroll-auto bg-gradient-to-r from-pink-200 via-purple-200 to-pink-200 animated-background">
+    <main className="overflow-x-hidden mx-auto scroll-smooth md:scroll-auto">
       <Nav />
       <Hero />
       <About temperature={temperature} />

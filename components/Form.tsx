@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useForm, Controller, FormProvider } from "react-hook-form";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -17,15 +17,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRightIcon } from "lucide-react";
 
 export default function Form() {
-  const methods = useForm({
-    defaultValues: {
+const methods = useForm({
+  defaultValues: useMemo(
+    () => ({
       name: "",
       email: "",
-      phone: "",
       subject: "",
       message: "",
-    },
-  });
+    }),
+    []
+  ),
+});
 
   const [formStatus, setFormStatus] = useState<{
     message: string;

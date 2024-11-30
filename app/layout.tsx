@@ -93,23 +93,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Preload critical assets */}
-
         <link
           rel="icon"
           type="image/png"
           href="/favicon-96x96.png"
           sizes="96x96"
         />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
       </head>
       <body
         // Add accessibility and performance attributes
-        className={`${inter.className} min-h-screen`}
+        className={`${inter.className} min-h-screen bg-gradient-to-r from-pink-200 via-purple-200 to-pink-200 animated-background`}
       >
         {children}
       </body>
