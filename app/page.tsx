@@ -27,7 +27,7 @@ export default async function Home() {
   const temperature = weatherData ? weatherData.main.temp : null;
 
   return (
-    <main className="overflow-x-hidden mx-auto scroll-smooth md:scroll-auto">
+    <main className="overflow-x-hidden mx-auto scroll-smooth">
       <Nav />
       <Hero />
       <About temperature={temperature} />

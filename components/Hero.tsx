@@ -20,7 +20,7 @@ export function Hero() {
           <Star className="h-20 w-20 drop-shadow-lg" />
         </div>
         <h1 className="mb-4 text-5xl md:text-7xl font-bold tracking-tight text-pink-900">
-          Hi. I&apos;m Sophie.
+          Hi, I&apos;m Sophie.
           <br />
           <SparklesText
             text="A Marketing Professional."

@@ -48,7 +48,7 @@ export function Footer() {
             <FaLinkedin className="h-6 w-6 border-pink-300 hover:scale-110" />
           </a>
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:sophieqtucker@gmail.com"
             className="text-pink-600 hover:text-pink-800"
           >
             <span className="sr-only">Email</span>

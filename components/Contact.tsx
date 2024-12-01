@@ -2,11 +2,15 @@
 import { JSX, SVGProps } from "react";
 import Form from "@/components/Form";
 import { MailIcon } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa6";
 
 
 export default function Contact() {
   return (
-    <div id="contact" className="w-full max-w-5xl mx-auto py-24 px-4 lg:px-8 scroll-smooth">
+    <div
+      id="contact"
+      className="w-full max-w-5xl mx-auto py-24 px-4 lg:px-8 scroll-smooth"
+    >
       <div className="grid lg:grid-cols-2 gap-16">
         <div className="space-y-4">
           <h2 className="text-3xl font-bold text-pink-950 mb-6">
@@ -14,16 +18,25 @@ export default function Contact() {
           </h2>
           <p className="text-foreground/80 font-semibold"></p>
           <div className="space-y-2">
-            <div className="flex items-center space-x-2">
+            <div className="flex space-x-2">
               <MailIcon className="h-5 w-5 text-foreground/80 " />
               <a
-                href="mailto:sophie@sophietucker.ca"
+                href="mailto:sophieqtucker@gmail.com"
                 className="text-foreground/80 text-sm font-semibold hover:underline hover:underline-offset-2"
               >
-                sophie@sophietucker.ca
+                sophieqtucker@gmail.com
               </a>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex space-x-2">
+              <FaLinkedin className="h-5 w-5 text-foreground/80 " />
+              <a
+                href="https://www.linkedin.com/in/sophie-tucker/"
+                className="text-foreground/80 text-sm font-semibold hover:underline hover:underline-offset-2"
+              >
+                /Sophie-Tucker
+              </a>
+            </div>
+            <div className="flex space-x-2">
               <MapPinIcon className="h-5 w-5 text-foreground/80 " />
               <span className="text-foreground/80 text-sm font-semibold">
                 Dartmouth, Nova Scotia

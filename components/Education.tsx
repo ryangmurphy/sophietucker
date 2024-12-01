@@ -147,9 +147,7 @@ const skills = [
               <p className="text-md md:text-lg font-semibold text-pink-700">
                 Bachelor of Commerce
               </p>
-              <p className="text-md text-pink-600">
-                Major in Marketing
-              </p>
+              <p className="text-md text-pink-600">Major in Marketing</p>
             </div>
             <div className="flex-shrink-0 w-full md:w-1/3 mb-4 md:mb-0">
               <h3 className="text-lg md:text-xl font-bold text-pink-900 mb-2 text-center">
@@ -192,6 +190,7 @@ const skills = [
                     width={100}
                     height={100}
                     className="mb-2"
+                    loading="eager"
                   />
                   <h3 className="text-lg font-semibold text-pink-800 mb-2">
                     {cert.name}
@@ -230,6 +229,7 @@ const skills = [
                       alt={`${skill.name} logo`}
                       width={80}
                       height={80}
+                      loading="eager"
                       className="p-1 rounded-full max-w-32"
                     />
                   </div>

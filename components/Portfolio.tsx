@@ -1,39 +1,51 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+//import { Button } from "@/components/ui/button";
 
 const portfolioProjects = [
   {
     id: "project1",
-    title: "project1",
+    title: "Paraglide",
     description:
-      "Led a comprehensive brand redesign for a tech startup, resulting in a 40% increase in brand recognition.",
-    image: "/ah-igpost.png",
-    tags: ["Branding", "Design", "Marketing"],
+      "Successfully managed and optimized social media campaigns for Paraglide, leveraging data-driven insights to enhance content strategy, boost brand awareness, and drive audience engagement across multiple platforms",
+    image: "/paraglide.jpg",
+    tags: ["Marketing", "Social Media", "Analytics", "Branding", "Design"],
   },
   {
     id: "project2",
-    title: "project2",
+    title: "MacKenzie Healthcare Technologies",
     description:
-      "Developed and implemented a social media strategy that grew the client's following by 200% in 6 months.",
-    image: "/ah-igpost.png",
-    tags: ["Social Media", "Growth", "Strategy"],
+      "I developed and executed content strategies for promotional materials and social media, creating branded images and videos, managing content calendars, and analyzing social media performance to support sales goals and enhance the company's online presence.",
+    image: "/mht.jpg",
+    tags: [
+      "Marketing",
+      "Content Creation",
+      "Social Media",
+      "Branding",
+      "Analytics",
+    ],
   },
   {
     id: "project3",
-    title: "Paraglide Infographic",
+    title: "AnimeHalifax",
     description:
-      "Optimized an e-commerce website, improving conversion rates by 25% and increasing average order value by 15%.",
+      "Assisted with the creation and management of social media posts for AnimeHalifax, enhancing brand visibility and engagement through visually compelling designs and community-focused campaigns. Collaborated closely with the team to craft content that resonated with the target audience, contributing to increased interaction, community growth, and overall brand recognition.",
     image: "/ah-igpost.png",
-    tags: ["E-commerce", "Optimization", "UX"],
+    tags: [
+      "Social Media",
+      "Content Creation",
+      "Community Engagement",
+      "Meta Ads",
+      "Google Ads",
+    ],
   },
 ];
 
 export default function PortfolioPage() {
   return (
     <div id="work" className="w-full max-w-6xl mx-auto p-4 py-16">
-      <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl">
+      <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl md:w-[1200px]">
         <CardHeader>
           <CardTitle className="text-pink-800 text-center text-3xl">
             Portfolio
@@ -47,8 +59,8 @@ export default function PortfolioPage() {
                   src={project.image}
                   alt={project.title}
                   width={300}
-                  height={200}
-                  className="w-full h-48 object-cover"
+                  height={300}
+                  className="w-full h-fit object-cover rounded-xl"
                 />
                 <CardContent className="p-4">
                   <h3 className="text-lg font-semibold text-pink-800 mb-2">
@@ -68,9 +80,10 @@ export default function PortfolioPage() {
                       </Badge>
                     ))}
                   </div>
+                  {/*
                   <Button className="w-full bg-pink-500 hover:bg-pink-600 text-white">
                     View Project
-                  </Button>
+                  </Button> */}
                 </CardContent>
               </Card>
             ))}
