@@ -2,30 +2,48 @@ import Image from "next/image";
 import { Timeline } from "@/components/timeline";
 import Education from "@/components/Education";
 
+// Utility function to calculate the duration in months
+function calculateDuration(startDate: string, endDate: string | null): string {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : new Date();
+  const diffInMonths =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    (end.getMonth() - start.getMonth());
+  const years = Math.floor(diffInMonths / 12);
+  const months = diffInMonths % 12;
+
+  if (years > 0) {
+    return months > 0 ? `${years} yr ${months} mos` : `${years} yr`;
+  }
+  return `${months} mos`;
+}
 
 const timelineItems = [
   {
     company: "Nova Scotia Health Authority",
     role: "Scheduling Clerk",
-    period: "7 mos",
+    startDate: "2024-05-01",
+    endDate: null, // null indicates it's a current role
     width: "w-[240px]",
   },
   {
     company: "MacKenzie Healthcare Technologies",
     role: "Marketing and Digital Content Coordinator",
-    period: "1 yr",
+    startDate: "2023-08-01",
+    endDate: "2024-08-01",
     width: "w-[320px]",
   },
   {
     company: "Lindt & Sprüngli",
     role: "Lead Retail Supervisor",
-    period: "7+ yr",
+    startDate: "2016-08-01",
+    endDate: "2023-08-01",
     width: "w-[400px]",
   },
-];
-
-
-
+].map((item) => ({
+  ...item,
+  period: calculateDuration(item.startDate, item.endDate),
+}));
 
 export default function About({ temperature }: { temperature: number | null }) {
   return (
@@ -60,17 +78,17 @@ export default function About({ temperature }: { temperature: number | null }) {
                 <div className="mt-4 text-lg md:text-lg font-medium text-pink-900/90 w-full md:w-4/5">
                   <p>
                     As a recent graduate, I have gained hands-on experience in
-                    marketing, working across areas such as social media,
-                    content creation, communications, sales, and project
-                    management. In addition to my marketing role, my current
-                    role in administration has strengthened my organizational
-                    and communication skills.
+                    various aspects of marketing, including social media
+                    management, content creation, communications, sales, and
+                    project management. These experiences have equipped me with
+                    a versatile skill set and a keen ability to adapt to the
+                    dynamic nature of marketing.
                   </p>
                   <p className="mt-4">
-                    Lorem ipsum odor amet, consectetuer adipiscing elit. Vel
-                    quam pretium senectus pulvinar commodo conubia hac at.
-                    Inceptos auctor risus curae ultricies scelerisque conubia
-                    class. Porttitor lorem nullam habitant elementum facilisi
+                    Additionally, my current administrative role has enhanced my
+                    organizational and communication skills, allowing me to
+                    effectively manage tasks, collaborate with diverse teams,
+                    and maintain a detail-oriented approach.
                   </p>
                 </div>
               </div>
@@ -85,5 +103,3 @@ export default function About({ temperature }: { temperature: number | null }) {
     </div>
   );
 }
-
-

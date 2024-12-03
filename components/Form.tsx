@@ -47,7 +47,7 @@ const methods = useForm({
 
       if (response.ok) {
         setFormStatus({
-          message: "Form submitted successfully! I will reach out to you soon!",
+          message: "Form submitted successfully!",
           isError: false,
         });
         methods.reset();

@@ -16,7 +16,7 @@ const portfolioProjects = [
     id: "project2",
     title: "MacKenzie Healthcare Technologies",
     description:
-      "I developed and executed content strategies for promotional materials and social media, creating branded images and videos, managing content calendars, and analyzing social media performance to support sales goals and enhance the company's online presence.",
+      "Developed and executed content strategies for promotional materials and social media, creating branded images and videos, managing content calendars, and analyzing social media performance to support sales goals and enhance the company's online presence.",
     image: "/mht.jpg",
     tags: [
       "Marketing",
@@ -30,7 +30,7 @@ const portfolioProjects = [
     id: "project3",
     title: "AnimeHalifax",
     description:
-      "Assisted with the creation and management of social media posts for AnimeHalifax, enhancing brand visibility and engagement through visually compelling designs and community-focused campaigns. Collaborated closely with the team to craft content that resonated with the target audience, contributing to increased interaction, community growth, and overall brand recognition.",
+      "Assisted with the creation and management of social media posts for AnimeHalifax, enhancing brand visibility and engagement through visually compelling designs and community-focused campaigns.",
     image: "/ah-igpost.png",
     tags: [
       "Social Media",
@@ -69,7 +69,7 @@ export default function PortfolioPage() {
                   <p className="text-sm text-pink-600 mb-4">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <Badge
                         key={tag}
@@ -80,10 +80,6 @@ export default function PortfolioPage() {
                       </Badge>
                     ))}
                   </div>
-                  {/*
-                  <Button className="w-full bg-pink-500 hover:bg-pink-600 text-white">
-                    View Project
-                  </Button> */}
                 </CardContent>
               </Card>
             ))}
