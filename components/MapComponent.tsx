@@ -16,17 +16,19 @@ function MapComponent() {
       },
       {
         rootMargin: '0px',
-        threshold: 0.05, // Adjust the threshold as needed
+        threshold: 0.1, // Adjust the threshold as needed
       }
     );
 
-    if (mapRef.current) {
-      observer.observe(mapRef.current);
+    const currentMapRef = mapRef.current; // Store the current ref value
+
+    if (currentMapRef) {
+      observer.observe(currentMapRef);
     }
 
     return () => {
-      if (mapRef.current) {
-        observer.unobserve(mapRef.current);
+      if (currentMapRef) {
+        observer.unobserve(currentMapRef); // Use the stored variable here
       }
     };
   }, []);
