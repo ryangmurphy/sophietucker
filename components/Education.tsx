@@ -137,6 +137,7 @@ const skills = [
                 alt="Saint Mary's University"
                 width={150}
                 height={150}
+                loading="lazy"
                 className="rounded-full border-4 border-pink-200"
               />
             </div>
@@ -190,7 +191,7 @@ const skills = [
                     width={100}
                     height={100}
                     className="mb-2"
-                    loading="eager"
+                    loading="lazy"
                   />
                   <h3 className="text-lg font-semibold text-pink-800 mb-2">
                     {cert.name}
@@ -229,7 +230,7 @@ const skills = [
                       alt={`${skill.name} logo`}
                       width={80}
                       height={80}
-                      loading="eager"
+                      loading="lazy"
                       className="p-1 rounded-full max-w-32"
                     />
                   </div>

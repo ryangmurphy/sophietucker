@@ -3,7 +3,7 @@ import { JSX, SVGProps } from "react";
 import Form from "@/components/Form";
 import { MailIcon } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa6";
-
+import MapComponent from "@/components/MapComponent";
 
 export default function Contact() {
   return (
@@ -19,7 +19,7 @@ export default function Contact() {
           <p className="text-foreground/80 font-semibold"></p>
           <div className="space-y-2">
             <div className="flex space-x-2">
-              <MailIcon className="h-5 w-5 text-foreground/80 " />
+              <MailIcon className="h-6 w-6 text-foreground/80 " />
               <a
                 href="mailto:sophieqtucker@gmail.com"
                 className="text-foreground/80 text-sm font-semibold hover:underline hover:underline-offset-2"
@@ -28,7 +28,7 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex space-x-2">
-              <FaLinkedin className="h-5 w-5 text-foreground/80 " />
+              <FaLinkedin className="h-6 w-6 text-foreground/80 " />
               <a
                 href="https://www.linkedin.com/in/sophie-tucker/"
                 className="text-foreground/80 text-sm font-semibold hover:underline hover:underline-offset-2"
@@ -37,28 +37,15 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex space-x-2">
-              <MapPinIcon className="h-5 w-5 text-foreground/80 " />
+              <MapPinIcon className="h-6 w-6 text-foreground/80 " />
               <span className="text-foreground/80 text-sm font-semibold">
                 Dartmouth, Nova Scotia
               </span>
             </div>
-            <div className="lg:col-span-2 pt-6">
-              <div className="h-96 w-full">
-                <iframe
-                  src="https://www.google.com/maps/embed/v1/search?q=darmouth&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="eager"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-xl"
-                ></iframe>
-              </div>
-            </div>
+            <div className="lg:col-span-2 pt-6"></div>
           </div>
         </div>
-        <Form />
+        <MapComponent />  
       </div>
     </div>
   );

@@ -5,6 +5,8 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  preload: true,
+  variable: '--font-inter',
 });
 // Comprehensive metadata configuration
 export const metadata: Metadata = {

@@ -11,12 +11,16 @@ const navItems = [
   { href: "#contact", label: "Contact" },
 ];
 
-export function Nav() {
+export const Nav = React.memo(() => {
   const [activeItem, setActiveItem] = React.useState("/")
+
+  const handleClick = React.useCallback((href: string) => {
+    setActiveItem(href);
+  }, []);
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 flex justify-center p-6">
-      <div className="flex items-center gap-1 rounded-full bg-white/40 px-2 py-1 backdrop-blur-lg">
+      <div className="flex items-center gap-1 rounded-full bg-white/40 border border-white/60 px-2 py-1 backdrop-blur-lg">
         {navItems.map((item, index) => (
           <React.Fragment key={item.href}>
             <Link
@@ -27,7 +31,7 @@ export function Nav() {
                   ? "bg-pink-50 text-pink-950"
                   : "text-pink-700"
               )}
-              onClick={() => setActiveItem(item.href)}
+              onClick={() => handleClick(item.href)}
             >
               {item.label}
             </Link>
@@ -39,5 +43,6 @@ export function Nav() {
       </div>
     </nav>
   )
-}
+});
 
+Nav.displayName = 'Nav';

@@ -10,12 +10,25 @@ import PortfolioPage from "@/components/Portfolio";
 async function getWeather(): Promise<{ main: { temp: number } } | null> {
   try {
     const apiKey = process.env.WEATHER_API_KEY;
+    if (!apiKey) {
+      throw new Error("API key is missing");
+    }
+
     const url = `https://api.openweathermap.org/data/2.5/weather?q=Halifax,CA&units=metric&appid=${apiKey}`;
 
-    const res = await fetch(url, { next: { revalidate: 1800 } }); // ISR mechanism (revalidate every 30 minutes)
-    if (!res.ok) throw new Error("Failed to fetch weather data");
+    const res = await fetch(url, {
+      next: { revalidate: 1800 },
+      headers: {
+        "Cache-Control": "public, s-maxage=1800, stale-while-revalidate=2400",
+      },
+    });
 
-    return await res.json();
+    if (!res.ok) {
+      throw new Error(`Failed to fetch weather data: ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    return data;
   } catch (error) {
     console.error("Error fetching weather data:", error);
     return null;
