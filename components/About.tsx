@@ -75,7 +75,7 @@ export default function About({ temperature }: { temperature: number | null }) {
                 <h2 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight md:leading-normal md:tracking-normal text-pink-950">
                   Dartmouth, Nova Scotia.
                 </h2>
-                <div className="mt-4 text-lg md:text-lg font-medium text-pink-900/90 w-full md:w-4/5">
+                <div className="mt-4 text-lg md:text-lg font-semibold tracking-wide text-pink-950 w-full md:w-4/5">
                   <p>
                     As a recent graduate, I have gained hands-on experience in
                     various aspects of marketing, including social media

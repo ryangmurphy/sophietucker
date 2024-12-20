@@ -102,7 +102,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
     const interval = setInterval(updateStars, 100);
 
     return () => clearInterval(interval);
-  }, [colors.first, colors.second, sparklesCount]);
+  }, [colors.first, colors.second]);
 
   return (
     <div
@@ -119,7 +119,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({
         {sparkles.map((sparkle) => (
           <Sparkle key={sparkle.id} {...sparkle} />
         ))}
-        <span>{text}</span>
+        <strong>{text}</strong>
       </span>
     </div>
   );

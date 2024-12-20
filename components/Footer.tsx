@@ -13,25 +13,25 @@ export function Footer() {
           <nav className="flex space-x-4">
             <Link
               href="/"
-              className="text-pink-700 hover:text-pink-900 transition-colors"
+              className="text-pink-700 font-semibold hover:text-pink-900 transition-colors"
             >
               Home
             </Link>
             <Link
               href="#about"
-              className="text-pink-700 hover:text-pink-900 transition-colors"
+              className="text-pink-700 font-semibold hover:text-pink-900 transition-colors"
             >
               About
             </Link>
             <Link
               href="#work"
-              className="text-pink-700 hover:text-pink-900 transition-colors"
+              className="text-pink-700 font-semibold hover:text-pink-900 transition-colors"
             >
               Work
             </Link>
             <Link
               href="#contact"
-              className="text-pink-700 hover:text-pink-900 transition-colors"
+              className="text-pink-700 font-semibold hover:text-pink-900 transition-colors"
             >
               Contact
             </Link>

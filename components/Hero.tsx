@@ -31,7 +31,7 @@ export function Hero() {
           <Star className="h-20 w-20 drop-shadow-lg" />
         </div>
       </div>
-      <p className="mt-14 md:mt-8 max-w-lg text-lg md:text-xl font-semibold md:font-normal text-pink-800 relative z-30">
+      <p className="mt-14 md:mt-8 max-w-lg text-lg md:text-xl font-semibold text-pink-950 relative z-30">
         I&apos;m passionate about creating marketing strategies that drive
         engagement, turning insights into targeted plans, and delivering
         measurable impact.

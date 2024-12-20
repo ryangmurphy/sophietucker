@@ -1,72 +1,58 @@
-"use client";
 
-import { JSX, SVGProps } from "react";
-import { MailIcon } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa6";
-import MapComponent from "@/components/MapComponent";
+import { Card, CardContent } from "@/components/ui/card";
+import { FaLinkedin, FaEnvelope, FaMapPin } from "react-icons/fa";
 
-export default function Contact() {
+export default function ContactSection() {
   return (
-    <div
-      id="contact"
-      className="w-full max-w-5xl mx-auto py-24 px-4 lg:px-8 scroll-smooth"
-    >
-      <div className="grid lg:grid-cols-2 gap-16">
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold text-pink-950 mb-6">
-            Say Hello 👋
-          </h2>
-          <p className="text-foreground/80 font-semibold"></p>
-          <div className="space-y-2">
-            <div className="flex space-x-2">
-              <MailIcon className="h-6 w-6 text-foreground/80 " />
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold text-pink-800 mb-8 text-center">
+          Say hello! 👋
+        </h2>
+        <p className="text-xl text-pink-900 font-semibold  text-center mb-12 max-w-2xl mx-auto">
+          Ready to bring creative problem-solving and data-driven insights to
+          your team.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="flex flex-col items-center p-6">
+              <FaEnvelope className="w-12 h-12 text-pink-600 mb-4" />
+
               <a
                 href="mailto:sophieqtucker@gmail.com"
-                className="text-foreground/80 text-sm font-semibold hover:underline hover:underline-offset-2"
+                className="text-pink-800 hover:text-pink-500 font-semibold transition-colors"
               >
                 sophieqtucker@gmail.com
               </a>
-            </div>
-            <div className="flex space-x-2">
-              <FaLinkedin className="h-6 w-6 text-foreground/80 " />
-              <a
-                href="https://www.linkedin.com/in/sophie-tucker/"
-                className="text-foreground/80 text-sm font-semibold hover:underline hover:underline-offset-2"
-              >
-                /Sophie-Tucker
-              </a>
-            </div>
-            <div className="flex space-x-2">
-              <MapPinIcon className="h-6 w-6 text-foreground/80 " />
-              <span className="text-foreground/80 text-sm font-semibold">
-                Dartmouth, Nova Scotia
-              </span>
-            </div>
-            <div className="lg:col-span-2 pt-6"></div>
-          </div>
-        </div>
-        <MapComponent />  
-      </div>
-    </div>
-  );
-}
+            </CardContent>
+          </Card>
 
-function MapPinIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
+          <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="flex flex-col items-center p-6">
+              <FaLinkedin className="w-12 h-12 text-pink-600 mb-4" />
+
+              <a
+                href="https://linkedin.com/in/sophie-tucker"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-800 hover:text-pink-500 font-semibold transition-colors"
+              >
+                linkedin.com/in/sophie-tucker
+              </a>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-gradient-to-br from-pink-50 to-pink-100 border-pink-200 shadow-lg rounded-2xl hover:shadow-xl transition-shadow duration-300">
+            <CardContent className="flex flex-col items-center p-6">
+              <FaMapPin className="w-12 h-12 text-pink-600 mb-4" />
+              <p className="text-pink-800 hover:text-pink-500 font-semibold transition-colors">
+                Dartmouth, Nova Scotia
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
   );
 }
