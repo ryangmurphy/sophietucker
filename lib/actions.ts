@@ -10,7 +10,10 @@ export async function getWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=Halifax,CA&units=metric&appid=${apiKey}`;
     
     const res = await fetch(url, {
-      next: { revalidate: 1800 },
+      next: { revalidate: 3600 },
+      headers: {
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200'
+      }
     });
 
     if (!res.ok) {

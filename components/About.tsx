@@ -21,9 +21,16 @@ function calculateDuration(startDate: string, endDate: string | null): string {
 const timelineItems = [
   {
     company: "Nova Scotia Health Authority",
+    role: "Scheduling Coordinator",
+    startDate: "2025-01-01",
+    endDate: null, // null indicates it's a current role
+    width: "w-[240px]",
+  },
+  {
+    company: "Nova Scotia Health Authority",
     role: "Scheduling Clerk",
     startDate: "2024-05-01",
-    endDate: null, // null indicates it's a current role
+    endDate: "2025-01-02", // null indicates it's a current role
     width: "w-[240px]",
   },
   {
@@ -61,6 +68,7 @@ export default function About({ temperature }: { temperature: number | null }) {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover rounded-t-full"
                   priority
+                  quality={85}
                 />
               </div>
 
@@ -75,7 +83,7 @@ export default function About({ temperature }: { temperature: number | null }) {
                 <h2 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight md:leading-normal md:tracking-normal text-pink-950">
                   Dartmouth, Nova Scotia.
                 </h2>
-                <div className="mt-4 text-lg md:text-lg font-semibold tracking-wide text-pink-950 w-full md:w-4/5">
+                <div className="mt-4 text-lg md:text-lg font-medium leading-relaxed tracking-wide text-pink-950 w-full md:w-4/5">
                   <p>
                     As a recent graduate, I have gained hands-on experience in
                     various aspects of marketing, including social media

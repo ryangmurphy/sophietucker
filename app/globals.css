@@ -83,11 +83,11 @@ html, body {
 
 .animated-background {
     background-size: 400%;
+    will-change: background-position;
     -webkit-animation: animation 15s ease infinite;
     -moz-animation: animation 15s ease infinite;
     animation: animation 15s ease infinite;
 }
-
 
 @keyframes animation {
     0%,
@@ -99,3 +99,13 @@ html, body {
         background-position: 100% 50%;
     }
 }
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.bob {
+  animation: bob 3s ease-in-out infinite;
+}
+

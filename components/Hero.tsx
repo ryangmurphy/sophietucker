@@ -1,4 +1,3 @@
-
 import React from "react";
 
 import { StarsBackground } from "@/components/ui/stars-background";
@@ -17,7 +16,7 @@ export function Hero() {
 
       <div className="relative z-30">
         <div className="absolute -top-16 -left-4 md:-left-8 md:-top-8 rotate-12">
-          <Star className="h-20 w-20 drop-shadow-lg" />
+          <Star className="h-20 w-20 drop-shadow-lg bob" />
         </div>
         <h1 className="mb-4 text-5xl md:text-7xl font-bold tracking-tight text-pink-900">
           Hi, I&apos;m Sophie.
@@ -28,10 +27,10 @@ export function Hero() {
           />
         </h1>
         <div className="absolute -bottom-14 -right-4 md:-bottom-24 md:-right-16 -rotate-12">
-          <Star className="h-20 w-20 drop-shadow-lg" />
+          <Star className="h-20 w-20 drop-shadow-lg bob" />
         </div>
       </div>
-      <p className="mt-14 md:mt-8 max-w-lg text-lg md:text-xl font-semibold text-pink-950 relative z-30">
+      <p className="mt-14 md:mt-8 max-w-lg text-lg md:text-xl font-medium text-pink-950 relative z-30 leading-relaxed tracking-wide">
         I&apos;m passionate about creating marketing strategies that drive
         engagement, turning insights into targeted plans, and delivering
         measurable impact.

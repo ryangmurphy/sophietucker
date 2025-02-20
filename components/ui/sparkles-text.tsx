@@ -92,21 +92,24 @@ const SparklesText: React.FC<SparklesTextProps> = ({
           if (star.lifespan <= 0) {
             return generateStar();
           } else {
-            return { ...star, lifespan: star.lifespan - 0.1 };
+            return { ...star, lifespan: star.lifespan - 0.2 };
           }
         }),
       );
+      requestAnimationFrame(updateStars);
     };
 
     initializeStars();
-    const interval = setInterval(updateStars, 100);
+    requestAnimationFrame(updateStars);
 
-    return () => clearInterval(interval);
+    return () => {
+      // Cleanup will be handled by React
+    };
   }, [colors.first, colors.second]);
 
   return (
     <div
-      className={cn("text-6xl font-bold", className)}
+      className={cn("text-6xl font-bold will-change-transform", className)}
       {...props}
       style={
         {
